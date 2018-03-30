@@ -1,8 +1,9 @@
 import _map from 'lodash/map';
 import React, { Component } from 'react';
-import { Text, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { employeesFetch } from '../actions';
+import ListItem from './ListItem';
 
 
 class EmployeeList extends Component {
@@ -13,8 +14,8 @@ class EmployeeList extends Component {
 
   keyExtractor = (item) => item.uid;
 
-   renderItem = ({ item }) => (
-    <Text>{item.name}</Text>
+  renderItem = ({ item }) => (
+    <ListItem employee={item} />
   );
 
   render() {
